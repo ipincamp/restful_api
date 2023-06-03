@@ -1,0 +1,30 @@
+{
+  "name": "restful_api",
+  "version": "1.0.0",
+  "description": "RESTful API Template Using NodeJS, TypeScript and MongoDB",
+  "private": true,
+  "author": "ipincamp",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/ipincamp/restful_api#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=9.x"
+  },
+  "bugs": {
+    "url": "https://github.com/ipincamp/restful_api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipincamp/restful_api.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "rest-api",
+    "typescript"
+  ]
+}
