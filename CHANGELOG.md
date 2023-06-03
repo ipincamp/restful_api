@@ -165,3 +165,70 @@ yarn.lock
     },
 }
 ```
+
+```bash
+# completely dev dependencies
+npm i -D @types/bcrypt @types/cors @types/jsonwebtoken @types/uuid husky pretty-quick
+```
+
+```json
+// package.json
+{
+    "scripts": {
+        "check:types": "tsc --pretty --noEmit",
+        "check:format": "prettier --check .",
+        "check:eslint": "eslint . --ext js --ext ts --ext tsx",
+        "format": "prettier --write .",
+        "prepare": "husky install"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged ng lint ng test",
+            "pre-pushed": "ng build --aot true"
+        }
+    },
+}
+```
+
+```bash
+# setup husky
+npm run prepare
+```
+
+```sh
+# pre-commit
+
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Styling, Testing & Building your project before commiting!";
+
+# Check Prettier
+npm run check:format ||
+{
+    echo 'Prettier Check Failed! Run "npm run format", add changes & try to commit again.';
+    false;
+}
+
+# Check ESLint
+npm run check:eslint ||
+{
+    echo 'ESLint Check Failed! Make the required changes listed above, add changes & try to commit again.';
+    false;
+}
+
+# Check tsconfig
+npm run check:types ||
+{
+    echo 'Failed Type Check! Make the changes require abov, add changes & try to commit again.';
+    false;
+}
+
+npm run build ||
+{
+    echo 'Your Build Failed! See the error above.';
+    false;
+}
+
+echo "Success Commit"
+```
