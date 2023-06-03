@@ -113,3 +113,55 @@ npm i -D @types/express @typescript-eslint/parser eslint-plugin-node
     }
 }
 ```
+
+```bash
+# setup prettier
+npm i --save-dev --save-exact prettier
+```
+
+```json
+// .prettierrc
+{
+    "arrowParens": "always",
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+}
+```
+
+```json
+// .prettierignore
+build
+dist
+node_modules
+out
+public
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.eslintrc.json
+.prettierrc
+.vscode
+CHANGELOG.md
+LICENSE
+nodemon.json
+package.json
+package-lock.json
+README.md
+tsconfig.json
+vercel.json
+yarn.lock
+```
+
+```json
+// .eslintrc.json
+{
+    "ignorePatterns": ["**/dist/*", "**/node_modules/*", "**/public/*", "**/tsconfig.json"],
+    "parserOptions": {
+        "project": ["**/tsconfig.json"],
+    },
+}
+```
